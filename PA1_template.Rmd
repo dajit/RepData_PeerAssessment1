@@ -38,7 +38,7 @@ spd <- csvdata[,sum(as.numeric(steps), na.rm = TRUE), by=date]
 ```{r echo=FALSE}
 hist(spd$V1, main = "Total number of steps per day" , xlab = "Total number of steps",breaks = 20 )
 ```
-![Total number of steps per day](fig1.png)
+![Total number of steps per day](Total-number-of-steps-per-day.png)
 
 # report mean
 ```{r}
@@ -64,7 +64,7 @@ spi <- csvdata[,mean(as.numeric(steps), na.rm = TRUE), by=interval]
 ```{r echo=FALSE}
 plot(spi$interval,spi$V1,type="l",xlab = "Interval", ylab = "Average steps", main ="Average steps per interval across all days")
 ```
-![Average steps per interval across all days](fig2.png)
+![Average steps per interval across all days](Average-number-of-steps-per-interval.png)
 
 # Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 ### Find out interval with maximum steps 
@@ -123,7 +123,7 @@ spdImputedData <- imputedData[,sum(as.numeric(imputed_steps), na.rm = TRUE), by=
 ```{r echo=FALSE}
 hist(spdImputedData$V1, main = "Total number of steps (imputed) per day" , xlab = "Total number of steps (imputed)",breaks = 20 )
 ```
-![Total number of steps (imputed) per day](fig3.png)
+![Total number of steps (imputed) per day](Total-number-of-steps-Imputed-per-day.png)
 
 
 # report mean for imputed data
@@ -186,4 +186,4 @@ finalPlot <- qplot(interval,V1,data=finalData,geom="line",ylab =  "Average numbe
 finalPlot <- finalPlot + facet_wrap( ~ day_type, ncol = 1)
 print(finalPlot)
 ```
-![Average number of steps per interval for weekday and weekend](fig4.png)
+![Average number of steps per interval for weekday and weekend](Panel-plot-average-number-of-steps-per-interval-across-weekdays-and-weekends.png)
